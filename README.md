@@ -4,8 +4,6 @@ Remote life brought with it a lot of changes. One big change for me was the loss
 
 I've been using various tools to fill that gap, but none more than [Excalidraw](https://excalidraw.com/). It's simple yet powerful and instantaneously usable tool that I've been using to sketch out ideas, workflows, and diagrams.
 
-This repository is a collection of some of the sketches I've made using Excalidraw.
-
 Another change happened in recent years: large language models, and multi-modal models that can interpret images and sketches. This repository is a playground for me to explore how I can use these models to interpret and examine sketches.
 
 ## Design decisions
