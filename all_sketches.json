@@ -1,0 +1,244 @@
+[
+  {
+    "stylistic_words": [
+      "conceptual",
+      "sketched",
+      "draft",
+      "visualization",
+      "hand-drawn"
+    ],
+    "title": "Smart Plant Monitoring System",
+    "file_name": "smart_plant_monitoring_sketch.jpg",
+    "description": "The sketch represents a conceptual plan for a smart plant monitoring system. It illustrates a setup where plants are monitored for various parameters such as light, environment settings, and humidity. A section simulates a brain for decision-making processes, and there's a checklist for plant maintenance. The design includes taking photos, analyzing plants, and creating 3D models.",
+    "differences": "In today's reality, such plant monitoring systems are typically more technology-driven and integrated with real-time IoT devices and cloud-based systems. The sketch presents a more simplistic and manual setup as compared to the automated solutions available today.",
+    "insights": [
+      "Use of augmented reality (AR) to place 3D models of plants in a space.",
+      "Incorporates a brain-like decision-making unit, hinting towards AI integration.",
+      "Checklist approach for routine maintenance activities.",
+      "Minimap feature indicating room or area segmentation for monitoring.",
+      "Diagnostic feature for plant health assessment."
+    ],
+    "keywords": [
+      "Augmented Reality",
+      "Artificial Intelligence",
+      "Plant Monitoring",
+      "IoT",
+      "3D Modeling"
+    ],
+    "files": {
+      "svg": "IMG_2657.jpeg",
+      "png": "IMG_2657.jpeg",
+      "source_mime_type": "image/jpeg"
+    }
+  },
+  {
+    "stylistic_words": "technical, schematic, structured, abstract, conceptual",
+    "title": "Data Processing and Validation Workflow",
+    "file_name": "data_processing_validation_sketch.jpeg",
+    "description": "The sketch illustrates a multi-step workflow system for defining, validating, and processing data. The upper half includes modules for defining and validating coverage, attributes, and hierarchical structures. The lower half visualizes the flow of data through various stages, marked by 'TAG' mechanisms leading to categorized 'AREA' and 'GROUP'. The bottom section denotes the configuration files in YAML format and their deployment status.",
+    "differences": "Today's advanced data processing tools often involve more sophisticated user interfaces, automation through machine learning, and integration with cloud services, reducing the need for manual configuration and validation as depicted in the sketch.",
+    "insights": [
+      "The sketch emphasizes the importance of manual input and oversight in data validation.",
+      "Hierarchical tree structures are used for data categorization.",
+      "YAML configuration files play a critical role in setting up the processing environment.",
+      "The depiction suggests a segmented approach with stages clearly defined for data processing.",
+      "Manual push-to-deployment steps indicate potential points for error or bottlenecks."
+    ],
+    "keywords": [
+      "data processing",
+      "data validation",
+      "workflow management",
+      "configuration management",
+      "hierarchical structures"
+    ],
+    "files": {
+      "svg": "IMG_2660.JPG",
+      "png": "IMG_2660.JPG",
+      "source_mime_type": "image/jpeg"
+    }
+  },
+  {
+    "stylistic_words": [
+      "hand-drawn",
+      "geometric",
+      "mathematical",
+      "annotated",
+      "diagrammatic"
+    ],
+    "title": "Rectangular Partition Sketch",
+    "file_name": "rectangular_partition_sketch.jpg",
+    "description": "A sketch showing a rectangular partition of dimensions 10x10 units, broken down into sub-rectangles with annotated dimensions and proportions. The sketch includes size calculations of the sub-rectangles in relation to the larger rectangle.",
+    "differences": "The sketch focuses on exact geometric partitioning and precise measurements, a methodology less emphasized in today's quick digital modeling tools that favor automation and approximation over manual precision.",
+    "insights": [
+      "The rectangles are of varying sizes but maintain a proportional relationship based on the main rectangle's dimensions.",
+      "Handwritten annotations indicate thoughtful step-by-step calculations.",
+      "The calculations suggest a need for precise area calculations relevant to proportional reasoning.",
+      "The inclusion of fractional annotations implies an emphasis on mathematical exactness.",
+      "Rectangular sections are divided based on the ratio principles, likely inspired by mathematical or architectural necessity."
+    ],
+    "keywords": [
+      "geometric_partitioning",
+      "manual_calculation",
+      "proportional_analysis",
+      "geometric_sketching",
+      "annotated_diagrams"
+    ],
+    "files": {
+      "svg": "IMG_2661.JPG",
+      "png": "IMG_2661.JPG",
+      "source_mime_type": "image/jpeg"
+    }
+  },
+  {
+    "stylistic_words": "hand-drawn, conceptual, note-taking, mindmap",
+    "title": "Conceptual Framework for Knowledge and Opinion Formation",
+    "file_name": "knowledge_opinion_framework_sketch.jpg",
+    "description": "This sketch is a hand-drawn representation of the process for forming and validating opinions and arguments. It utilizes references to Wikipedia data, unpopular opinions, and advanced knowledge to structure an approach to argument construction and evidence gathering. It includes flowcharts depicting how opinions are influenced and the depth of knowledge required for substantiated arguments.",
+    "differences": "Today's reality often relies more heavily on digital tools, social media, and instantaneous information dissemination compared to the more methodical, step-by-step framework visualized here. The sketch suggests a deliberate process of validation and knowledge gathering, contrasting with the rapid and sometimes superficial consumption of information prevalent today.",
+    "insights": [
+      "The process emphasizes the importance of examining words and context before forming opinions.",
+      "There's a notable focus on using Wikipedia and Reddit as sources for preliminary data and opinions respectively.",
+      "The transition from common knowledge to advanced knowledge is shown as requiring rigorous questioning and evidence collection.",
+      "Highlighting loaded words and emotions suggests the presence of bias in arguments.",
+      "The visual of 'infinite canvas' implies never-ending research and continuous opinion evolution."
+    ],
+    "keywords": [
+      "knowledge validation",
+      "opinion formation",
+      "argument analysis",
+      "information sourcing",
+      "conceptual framework"
+    ],
+    "files": {
+      "svg": "IMG_2662.JPG",
+      "png": "IMG_2662.JPG",
+      "source_mime_type": "image/jpeg"
+    }
+  },
+  {
+    "stylistic_words": [
+      "hand-drawn",
+      "mind map",
+      "chaotic",
+      "conceptual",
+      "analytical",
+      "organic"
+    ],
+    "title": "Conceptual Analysis and System Representation",
+    "file_name": "sketch_analysis.jpg",
+    "description": "The sketch is a complex mind map with various interconnected nodes representing ideas and concepts, ranging from complaints to technology, public safety, and personal advice. It contains a systemic flow, capturing relationships and dependencies among different elements, supported by annotations and an argument tree diagram.",
+    "differences": "Today's reality is more digital and streamlined, utilizing advanced software tools for mind mapping and system design. The sketch's analog form contrasts with the structured and clean digital interfaces available today. Public announcement systems are now more automated and less dependent on manual intervention.",
+    "insights": [
+      "The sketch prioritizes face-to-face communication and personal intervention.",
+      "Shows a mix of technical and personal elements, indicating a holistic approach to problem-solving.",
+      "Emphasizes interconnectedness between technology and daily life.",
+      "Suggests a preference for local-first data storage and robust anomaly detection systems."
+    ],
+    "keywords": [
+      "concept mapping",
+      "public safety announcements",
+      "local data storage",
+      "anomaly detection",
+      "system design"
+    ],
+    "files": {
+      "svg": "IMG_2663.JPG",
+      "png": "IMG_2663.JPG",
+      "source_mime_type": "image/jpeg"
+    }
+  },
+  {
+    "stylistic_words": [
+      "structured",
+      "hierarchical",
+      "process-driven",
+      "educational",
+      "analytical"
+    ],
+    "title": "AI Proficiency Evaluation System",
+    "file_name": "AI_Proficiency_Evaluation_Schema.png",
+    "description": "The sketch outlines an AI-driven system for assessing user proficiency in various topics. It includes a baseline proficiency test, a session interaction with an AI assistant, evaluation by an evaluator, and a summarization of the session. The process is documented and archived for future reference.",
+    "differences": "The sketch represents a structured and automated proficiency assessment system. Unlike traditional methods that require human intervention at multiple stages, this system leverages AI for session management and preliminary evaluation. Real-world applications may not achieve the same level of automation and standardization, often relying on human oversight and interpretation in assessing proficiency.",
+    "insights": [
+      "Automation streamlines the evaluation process, potentially reducing bias.",
+      "Baseline tests calibrate the starting proficiency level, personalizing user interactions.",
+      "The system can maintain an extensive archive, useful for tracking progress over time.",
+      "Evaluator summaries provide additional layers of validation and feedback.",
+      "Visual indicators (height, color) for proficiency offer an immediate understanding of results."
+    ],
+    "keywords": [
+      "AI assessment",
+      "proficiency testing",
+      "educational technology",
+      "human-AI interaction",
+      "automated evaluation"
+    ],
+    "files": {
+      "svg": "gamify.excalidraw.svg",
+      "png": "gamify.excalidraw.png"
+    }
+  },
+  {
+    "stylistic_words": [
+      "monochromatic",
+      "minimalist",
+      "schematic",
+      "diagrammatic",
+      "conceptual"
+    ],
+    "title": "Mental Map of Learning",
+    "file_name": "notion_mental_map_of_learning.png",
+    "description": "A conceptual sketch depicting the evolution of knowledge over time. It visualizes the increasing depth of knowledge and the connections formed as one progresses in learning. The diagram includes different stages of knowledge acquisition and the gaps that need to be filled to achieve cutting-edge knowledge.",
+    "differences": "This sketch emphasizes a structured and hierarchical approach to knowledge acquisition, highlighting the idea of 'filling gaps' to progress to the next stage. In today's reality, knowledge acquisition can be more fluid and less linear, with various paths and interdisciplinary learning becoming more prominent.",
+    "insights": [
+      "The depiction of 'gaps' highlights the importance of addressing missing links in knowledge to progress.",
+      "The concept of 'cutting edge' knowledge suggests a threshold where exponential growth in depth and connectivity occurs.",
+      "Different shapes and sizes of knowledge bubbles indicate varying complexities and depths in different knowledge areas.",
+      "The mention of 'paradigm shift' suggests that achieving cutting-edge knowledge can lead to fundamental changes in understanding or approach.",
+      "Connections between knowledge points show that gaining new knowledge often relies on existing knowledge foundations."
+    ],
+    "keywords": [
+      "knowledge acquisition",
+      "learning progression",
+      "conceptual graph",
+      "hierarchical learning",
+      "knowledge gaps"
+    ],
+    "files": {
+      "svg": "learning.svg",
+      "png": "learning.png"
+    }
+  },
+  {
+    "stylistic_words": [
+      "Hand-drawn",
+      "Conceptual",
+      "Flowchart",
+      "Analytical",
+      "Informal"
+    ],
+    "title": "Depression and Medications Insight",
+    "file_name": "depression_medication_sketch.jpg",
+    "description": "A sketched conceptual diagram aimed at analyzing the efficacy and difficulty in diagnosis of mental health states such as depression, anxiety, and bipolar across different age groups. The sketch features medication as a central node, comparison of what works currently, and age-specific challenges.",
+    "differences": "This sketch conceptualizes a simplified, somewhat linear approach to understanding the relationship between depression, anxiety, and bipolar disorders and their treatments across different age groups. In reality, mental health diagnosis and treatment are highly individualized and multi-faceted, requiring more complex, multi-dimensional models.",
+    "insights": [
+      "The sketch suggests that there is a noteworthy difficulty in diagnosing depression compared to anxiety and bipolar disorders.",
+      "There is a focus on understanding what medications work currently for these conditions.",
+      "Age group differentiation indicates that depression is prominent and hard to catch in the 40-50 age group, while anxiety and bipolar disorder become more prominent in older age groups.",
+      "The diagram includes a visual element of a website interface possibly indicating a digital approach to represent or address the findings.",
+      "The use of 'sample ds' suggests data sample collection or analysis as part of the study."
+    ],
+    "keywords": [
+      "Depression",
+      "Medication Efficacy",
+      "Age-specific Analysis",
+      "Mental Health Diagnosis",
+      "Conceptual Diagram"
+    ],
+    "files": {
+      "svg": "mental health explorer.jpg",
+      "png": "mental health explorer.jpg",
+      "source_mime_type": "image/jpeg"
+    }
+  }
+]

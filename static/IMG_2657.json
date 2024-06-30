@@ -1,0 +1,32 @@
+{
+    "stylistic_words": [
+        "conceptual",
+        "sketched",
+        "draft",
+        "visualization",
+        "hand-drawn"
+    ],
+    "title": "Smart Plant Monitoring System",
+    "file_name": "smart_plant_monitoring_sketch.jpg",
+    "description": "The sketch represents a conceptual plan for a smart plant monitoring system. It illustrates a setup where plants are monitored for various parameters such as light, environment settings, and humidity. A section simulates a brain for decision-making processes, and there's a checklist for plant maintenance. The design includes taking photos, analyzing plants, and creating 3D models.",
+    "differences": "In today's reality, such plant monitoring systems are typically more technology-driven and integrated with real-time IoT devices and cloud-based systems. The sketch presents a more simplistic and manual setup as compared to the automated solutions available today.",
+    "insights": [
+        "Use of augmented reality (AR) to place 3D models of plants in a space.",
+        "Incorporates a brain-like decision-making unit, hinting towards AI integration.",
+        "Checklist approach for routine maintenance activities.",
+        "Minimap feature indicating room or area segmentation for monitoring.",
+        "Diagnostic feature for plant health assessment."
+    ],
+    "keywords": [
+        "Augmented Reality",
+        "Artificial Intelligence",
+        "Plant Monitoring",
+        "IoT",
+        "3D Modeling"
+    ],
+    "files": {
+        "svg": "IMG_2657.jpeg",
+        "png": "IMG_2657.jpeg",
+        "source_mime_type": "image/jpeg"
+    }
+}

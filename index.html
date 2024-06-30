@@ -1,16 +1,15 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>sketch viz</title>
+<link rel="icon" type="image/x-icon" href="#">
+
+<title>Sketches</title>
 <script src="https://cdn.tailwindcss.com"></script>
 
 <!-- modern font suitable for titleblocks in an architectural sketch -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-<title>Sketches</title>
 
 <script>
   tailwind.config = {
@@ -28,7 +27,7 @@
 </script>
 
 <style>
-  .tags {
+  .keywords {
     display: flex;
     flex-wrap: wrap;
     
@@ -45,52 +44,118 @@
     }
   }
 
-</style>
-  <div class="titleblock transition-all shadow-none duration-200 hover:shadow-xl absolute top-4 right-4 w-48 border bg-slate-50 font-[Roboto]">
-    <div class="flex">
-      <h1 class="text-xxs p-0.5">AREA<br/><strong>Learning & Development</strong></h1>
-      <h2 class="text-xxs p-0.5 ml-auto border-l">Uploaded<br/>2023-06-21</h1>
-      <h2 class="text-xxs p-0.5 ml-auto border-l"><span class="bg-lime-300 rounded w-6 h-6 block"></span></h1>
-    </div>
-    <div class="details">
-      <div class="text-xs border-t p-0.5">
-        <p>Notes/A mental map of learning. The diagram describes a journey from basic knowledge acquisition to more complex and interconnected knowledge structures. </p>
-        <p class="mt-1">The transition from left to right represent the deepending and broadening of knowledge over time, with significant milestones or "paradigm shifts" marking major advancements.</p>
-      </div>
-      <h3 class="text-xxs uppercase flex-1 p-0.5 mt-1 border-t">Keywords</h3>
-      <div class="tags gap-1 p-0.5">
-        <span>Knowledge Acquisition</span>
-        <span>Conceptual Mapping</span>
-        <span>Learning Progression</span>
-        <span>Knowledge Representation</span>
-        <span>Educational Visualization</span>
-      </div>
-    </div>
-    <div class="bg-slate-500 py-0.5 transition-[padding] ease-in-out hover:py-1 hover:bg-slate-700"></div>
-  </div>
+  .header:hover span {
+    color: #444 !important;
+  }
 
-  <object data="graphs.excalidraw.svg" type="image/svg+xml" id="graph" class="w-screen h-screen"></object>
-<script src="svg-pan-zoom.min.js"></script>
+</style>
+
+<div id="container" class="flex flex-col overflow-x-hidden"></div>
+
+<script src="js/svg-pan-zoom.min.js"></script>
+<script src="js/d3.v7.min.js"></script>
+
 <script type="module">
-  // import render from './sketches_ai.js';
-  // const container = d3.select("#container");
-  // render(container, data);
-  document.getElementById('graph').addEventListener('load', function(){
-    // Will get called after embed element was loaded
-    var panZoom = svgPanZoom(document.getElementById('graph'), {
-      zoomEnabled: true,
-      controlIconsEnabled: true,
-      fit: true,
-      contain: true,
-      center: true,
-      minZoom: 1
-    });
+  const setupSetches = () => {
+    fetch("./all_sketches.json")
+      .then((res) => res.json())
+      .then((data) => {
+        const sketches = d3.select("#container")
+          .selectAll("div.sketch")
+          .data(data)
+          .enter()
+          .append("div")
+          .classed("sketch", true)
+          .classed("relative border-y-4 bg-gray-50", true)
+        
+        sketches.append("div").classed("max-h-[150vh] overflow-clip", true).html((d, i) => {
+          // if it's a svg, render object. Otherwise render as img
+          const source_mime_type = d.files.source_mime_type || "image/svg+xml";
+          if (source_mime_type === "image/svg+xml") {
+            return `<object data="static/${d.files.svg}" type="image/svg+xml" class="w-screen h-screen" id="sketch_${i}"></object>`;
+          } else {
+            return `<img src="static/${d.files.png}" class="w-screen" id="sketch_${i}" />`;
+          }
+        });
+
+        const titleBlock = sketches
+          .append("div")
+          .attr("class", "titleblock transition-all shadow-none duration-200 hover:z-50 hover:shadow-xl hover:scale-105 absolute top-4 right-8 w-56 border font-[Roboto]")
+          
+        const header = titleBlock.append("div")
+          .classed("header flex justify-between items-center bg-white hover:cursor-pointer hover:bg-slate-50", true)
+
+        header
+          .append("h1")
+          .classed("text-xs px-0.5 border-t text-gray-700 font-bold", true)
+          .text(d => d.title)
+
+        header.append("span").html(d => `<span class="text-xs text-gray-300 block mr-1">🆇</span>`)
+        
+        header.on("mouseover", (e, d) => {
+          const ref_title_block = e.target.closest(".titleblock").querySelector(".details");
+          ref_title_block.classList.add("opacity-30");
+        })
+        .on("mouseout", (e, d) => {
+          const ref_title_block = e.target.closest(".titleblock").querySelector(".details");
+          ref_title_block.classList.remove("opacity-30");
+        })
+        .on("click", (e, d) => {
+          const ref_title_block = e.target.closest(".titleblock").querySelector(".details");
+          ref_title_block.classList.toggle("hidden");
+        });
+
+        const details = titleBlock.append("div").classed("details bg-slate-50", true)
+          // Description
+          details.append("h3").attr("class", "text-xxs uppercase p-0.5 pt-1 border-t").html("Description")
+          details.append("div").attr("class", "text-xs p-0.5").html(d => d["description"]);
+          
+          // Keywords
+          details.append("h3").attr("class", "text-xxs uppercase p-0.5 pt-1 border-t").html("Keywords")
+          details.append("div").attr("class", "keywords gap-1 p-0.5 bg-white").html(d => d["keywords"].map(k => `<span>${k}</span>`).join(""));
+
+          // Insights
+          details.append("h3").attr("class", "text-xxs uppercase p-0.5 pt-1 border-t").html("Insights")
+          const insights = details.append("ul").classed("insights", true)
+          insights.selectAll("li").data(d => d.insights).enter().append("li").classed("text-xs p-0.5 bg-orange-50 mb-0.5", true).html(d => d);
+
+          // Differences
+          details.append("h3").attr("class", "text-xxs uppercase p-0.5 pt-1 border-t").html("Reality check")
+          const differences = details.append("div").classed("differences p-0.5 bg-white text-xs", true).html(d => d.differences);
+
+        const footer = titleBlock.append("div").attr("class", "bg-slate-500 py-0.5")
+          
+      })
+  }
+
+  var svgs = [];
+  var imgs = [];
+
+  window.onload = function() {
+    setupSetches()
+
+    window.setTimeout(() => {
+      document.querySelectorAll(".sketch object").forEach((el) => {
+        const z = svgPanZoom("#" + el.id, {
+          zoomEnabled: true,
+          controlIconsEnabled: true,
+          fit: true,
+          contain: true,
+          center: true,
+          minZoom: 1
+        });
+        svgs.push(z);
+      });
+    }, 100)
+  };
 
     window.addEventListener('resize', function() {
-      panZoom.resize();
-      // panZoom.fit();
-      panZoom.center();
-    })
-  })
+      svgs.forEach(z => {
+        z.resize();
+        // z.fit();
+        z.center();
+      });
+    });
+
 </script>
 </html>

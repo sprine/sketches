@@ -1,0 +1,31 @@
+{
+    "stylistic_words": [
+        "structured",
+        "hierarchical",
+        "process-driven",
+        "educational",
+        "analytical"
+    ],
+    "title": "AI Proficiency Evaluation System",
+    "file_name": "AI_Proficiency_Evaluation_Schema.png",
+    "description": "The sketch outlines an AI-driven system for assessing user proficiency in various topics. It includes a baseline proficiency test, a session interaction with an AI assistant, evaluation by an evaluator, and a summarization of the session. The process is documented and archived for future reference.",
+    "differences": "The sketch represents a structured and automated proficiency assessment system. Unlike traditional methods that require human intervention at multiple stages, this system leverages AI for session management and preliminary evaluation. Real-world applications may not achieve the same level of automation and standardization, often relying on human oversight and interpretation in assessing proficiency.",
+    "insights": [
+        "Automation streamlines the evaluation process, potentially reducing bias.",
+        "Baseline tests calibrate the starting proficiency level, personalizing user interactions.",
+        "The system can maintain an extensive archive, useful for tracking progress over time.",
+        "Evaluator summaries provide additional layers of validation and feedback.",
+        "Visual indicators (height, color) for proficiency offer an immediate understanding of results."
+    ],
+    "keywords": [
+        "AI assessment",
+        "proficiency testing",
+        "educational technology",
+        "human-AI interaction",
+        "automated evaluation"
+    ],
+    "files": {
+        "svg": "gamify.excalidraw.svg",
+        "png": "gamify.excalidraw.png"
+    }
+}

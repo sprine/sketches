@@ -1,0 +1,31 @@
+{
+    "stylistic_words": [
+        "monochromatic",
+        "minimalist",
+        "schematic",
+        "diagrammatic",
+        "conceptual"
+    ],
+    "title": "Mental Map of Learning",
+    "file_name": "notion_mental_map_of_learning.png",
+    "description": "A conceptual sketch depicting the evolution of knowledge over time. It visualizes the increasing depth of knowledge and the connections formed as one progresses in learning. The diagram includes different stages of knowledge acquisition and the gaps that need to be filled to achieve cutting-edge knowledge.",
+    "differences": "This sketch emphasizes a structured and hierarchical approach to knowledge acquisition, highlighting the idea of 'filling gaps' to progress to the next stage. In today's reality, knowledge acquisition can be more fluid and less linear, with various paths and interdisciplinary learning becoming more prominent.",
+    "insights": [
+        "The depiction of 'gaps' highlights the importance of addressing missing links in knowledge to progress.",
+        "The concept of 'cutting edge' knowledge suggests a threshold where exponential growth in depth and connectivity occurs.",
+        "Different shapes and sizes of knowledge bubbles indicate varying complexities and depths in different knowledge areas.",
+        "The mention of 'paradigm shift' suggests that achieving cutting-edge knowledge can lead to fundamental changes in understanding or approach.",
+        "Connections between knowledge points show that gaining new knowledge often relies on existing knowledge foundations."
+    ],
+    "keywords": [
+        "knowledge acquisition",
+        "learning progression",
+        "conceptual graph",
+        "hierarchical learning",
+        "knowledge gaps"
+    ],
+    "files": {
+        "svg": "learning.svg",
+        "png": "learning.png"
+    }
+}
