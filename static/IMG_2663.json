@@ -1,0 +1,32 @@
+{
+    "stylistic_words": [
+        "hand-drawn",
+        "mind map",
+        "chaotic",
+        "conceptual",
+        "analytical",
+        "organic"
+    ],
+    "title": "Conceptual Analysis and System Representation",
+    "file_name": "sketch_analysis.jpg",
+    "description": "The sketch is a complex mind map with various interconnected nodes representing ideas and concepts, ranging from complaints to technology, public safety, and personal advice. It contains a systemic flow, capturing relationships and dependencies among different elements, supported by annotations and an argument tree diagram.",
+    "differences": "Today's reality is more digital and streamlined, utilizing advanced software tools for mind mapping and system design. The sketch's analog form contrasts with the structured and clean digital interfaces available today. Public announcement systems are now more automated and less dependent on manual intervention.",
+    "insights": [
+        "The sketch prioritizes face-to-face communication and personal intervention.",
+        "Shows a mix of technical and personal elements, indicating a holistic approach to problem-solving.",
+        "Emphasizes interconnectedness between technology and daily life.",
+        "Suggests a preference for local-first data storage and robust anomaly detection systems."
+    ],
+    "keywords": [
+        "concept mapping",
+        "public safety announcements",
+        "local data storage",
+        "anomaly detection",
+        "system design"
+    ],
+    "files": {
+        "svg": "IMG_2663.JPG",
+        "png": "IMG_2663.JPG",
+        "source_mime_type": "image/jpeg"
+    }
+}
