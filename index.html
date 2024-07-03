@@ -48,6 +48,17 @@
     color: #444 !important;
   }
 
+  .details h3::after {
+    content: " -";
+    font-family: monospace;
+    cursor: pointer;
+    color: #888;
+  }
+
+  .details h3.visible::after {
+    content: " +";
+  }
+
 </style>
 
 <div id="container" class="flex flex-col overflow-x-hidden"></div>
@@ -56,106 +67,9 @@
 <script src="js/d3.v7.min.js"></script>
 
 <script type="module">
-  const setupSetches = () => {
-    fetch("./all_sketches.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const sketches = d3.select("#container")
-          .selectAll("div.sketch")
-          .data(data)
-          .enter()
-          .append("div")
-          .classed("sketch", true)
-          .classed("relative border-y-4 bg-gray-50", true)
-        
-        sketches.append("div").classed("max-h-[150vh] overflow-clip", true).html((d, i) => {
-          // if it's a svg, render object. Otherwise render as img
-          const source_mime_type = d.files.source_mime_type || "image/svg+xml";
-          if (source_mime_type === "image/svg+xml") {
-            return `<object data="static/${d.files.svg}" type="image/svg+xml" class="w-screen h-screen" id="sketch_${i}"></object>`;
-          } else {
-            return `<img src="static/${d.files.png}" class="w-screen" id="sketch_${i}" />`;
-          }
-        });
-
-        const titleBlock = sketches
-          .append("div")
-          .attr("class", "titleblock transition-all shadow-none duration-200 hover:z-50 hover:shadow-xl hover:scale-105 absolute top-4 right-8 w-56 border font-[Roboto]")
-          
-        const header = titleBlock.append("div")
-          .classed("header flex justify-between items-center bg-white hover:cursor-pointer hover:bg-slate-50", true)
-
-        header
-          .append("h1")
-          .classed("text-xs px-0.5 border-t text-gray-700 font-bold", true)
-          .text(d => d.title)
-
-        header.append("span").html(d => `<span class="text-xs text-gray-300 block mr-1">🆇</span>`)
-        
-        header.on("mouseover", (e, d) => {
-          const ref_title_block = e.target.closest(".titleblock").querySelector(".details");
-          ref_title_block.classList.add("opacity-30");
-        })
-        .on("mouseout", (e, d) => {
-          const ref_title_block = e.target.closest(".titleblock").querySelector(".details");
-          ref_title_block.classList.remove("opacity-30");
-        })
-        .on("click", (e, d) => {
-          const ref_title_block = e.target.closest(".titleblock").querySelector(".details");
-          ref_title_block.classList.toggle("hidden");
-        });
-
-        const details = titleBlock.append("div").classed("details bg-slate-50", true)
-          // Description
-          details.append("h3").attr("class", "text-xxs uppercase p-0.5 pt-1 border-t").html("Description")
-          details.append("div").attr("class", "text-xs p-0.5").html(d => d["description"]);
-          
-          // Keywords
-          details.append("h3").attr("class", "text-xxs uppercase p-0.5 pt-1 border-t").html("Keywords")
-          details.append("div").attr("class", "keywords gap-1 p-0.5 bg-white").html(d => d["keywords"].map(k => `<span>${k}</span>`).join(""));
-
-          // Insights
-          details.append("h3").attr("class", "text-xxs uppercase p-0.5 pt-1 border-t").html("Insights")
-          const insights = details.append("ul").classed("insights", true)
-          insights.selectAll("li").data(d => d.insights).enter().append("li").classed("text-xs p-0.5 bg-orange-50 mb-0.5", true).html(d => d);
-
-          // Differences
-          details.append("h3").attr("class", "text-xxs uppercase p-0.5 pt-1 border-t").html("Reality check")
-          const differences = details.append("div").classed("differences p-0.5 bg-white text-xs", true).html(d => d.differences);
-
-        const footer = titleBlock.append("div").attr("class", "bg-slate-500 py-0.5")
-          
-      })
-  }
-
-  var svgs = [];
-  var imgs = [];
-
+  import setupSetches from "./js/sketchviz.js";
   window.onload = function() {
-    setupSetches()
-
-    window.setTimeout(() => {
-      document.querySelectorAll(".sketch object").forEach((el) => {
-        const z = svgPanZoom("#" + el.id, {
-          zoomEnabled: true,
-          controlIconsEnabled: true,
-          fit: true,
-          contain: true,
-          center: true,
-          minZoom: 1
-        });
-        svgs.push(z);
-      });
-    }, 100)
+    setupSetches("#container")
   };
-
-    window.addEventListener('resize', function() {
-      svgs.forEach(z => {
-        z.resize();
-        // z.fit();
-        z.center();
-      });
-    });
-
 </script>
 </html>
