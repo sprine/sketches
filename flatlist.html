@@ -61,17 +61,21 @@
 
 </style>
 <div id="sys" class="text-xs font-mono p-0.5">
-  Prototype 2: Demo with sketches, resized, horizontal scroll. <a class="text-blue-600 underline underline-offset-1" href="https://github.com/sprine/sketches/pull/3">https://github.com/sprine/sketches/pull/3</a>. Wed, Jul 3, 2024.
+  Prototype 1: Demo with multiple sketches. <a class="text-blue-600 underline underline-offset-1" href="https://github.com/sprine/sketches/pull/1">https://github.com/sprine/sketches/pull/1</a>. Wed, Jul 3, 2024.
 </div>
-<div id="container"></div>
+<div id="container" class="flex flex-col overflow-x-hidden"></div>
 
 <script src="js/svg-pan-zoom.min.js"></script>
 <script src="js/d3.v7.min.js"></script>
 
 <script type="module">
-  import setupOverview from "./js/sketchviz-overview.js";
+  import setupSetches from "./js/sketchviz.js";
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const q = urlParams.get('q');
+
   window.onload = function() {
-    setupOverview("#container")
+    setupSetches("#container", q)
   };
 </script>
 </html>
