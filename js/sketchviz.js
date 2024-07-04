@@ -136,7 +136,9 @@ const setupSetches = (container, q) => {
     .then((res) => res.json())
     .then((data) => {
       const filteredData = !q ? data: data.filter((d) => {
-        return d.title.toLowerCase().includes(q.toLowerCase());
+        const cleaned_q = q.toLowerCase().replace(/[^a-z0-9]/g, "");
+        const corpus = [d.title, d.description, d.keywords.join(" ")].join(" ").toLowerCase().replace(/[^a-z0-9]/g, "");
+        return corpus.includes(cleaned_q)
       });
 
       const sketches = d3
