@@ -1,16 +1,21 @@
+from dotenv import load_dotenv  # for loading environment variables from .env
+load_dotenv()  # take environment variables from .env.
+
 import os
 import sys
 import shutil
 from collections import namedtuple
-from dotenv import load_dotenv  # for loading environment variables from .env
 from pathlib import Path
 import requests  # for making HTTP requests
 import base64  # for encoding the image to base64 necessary for the API
 import mimetypes  # for guessing the mime type of the file needed for the API
 import json
 import tempfile
+import logging 
 
-load_dotenv()  # take environment variables from .env.
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
 
 TEMP_DIR = Path(tempfile.TemporaryDirectory().name)
 OUTPUT_DIR = Path("static")
@@ -77,26 +82,6 @@ Return a JSON with the following information:
     return response.json()
 
 
-def prep_for_openai(file_path):
-    # convert the svg to png.
-    # this is the default expected format, however, don't block as long as the file is an image
-    if file_path.suffix == ".svg":
-        file_path = svg_to_png(file_path)
-
-    # encode the valid image to base64
-    base64_image = encode_image(file_path)
-    return file_path, base64_image
-
-
-def encode_image(image_path):
-    with open(image_path, "rb") as image_file:
-        return base64.b64encode(image_file.read()).decode("utf-8")
-
-
-def get_mime_type(image_path):
-    return mimetypes.guess_type(image_path)[0]
-
-
 def svg_to_png(svg_path, format="png"):
     # using librsvg
     target_path = svg_path.with_suffix(f".{format}")
@@ -106,11 +91,32 @@ def svg_to_png(svg_path, format="png"):
     return target_path
 
 
+def encode_image(image_path):
+    with open(image_path, "rb") as image_file:
+        return base64.b64encode(image_file.read()).decode("utf-8")
+
+
+def prep_for_openai(file_path):
+    # convert the svg to png.
+    # this is the default expected format, however, don't block as long as the file is an image
+    if file_path.suffix == ".svg":
+        file_path = svg_to_png(file_path)
+        logger.info(f"🌱 Converted {file_path} to PNG")
+
+    # encode the valid image to base64
+    base64_image = encode_image(file_path)
+    return file_path, base64_image
+
+
+def get_mime_type(image_path):
+    return mimetypes.guess_type(image_path)[0]
+
+
 def process(svg_file_path):
     # read the input file and convert it for openai
     mime_type = get_mime_type(svg_file_path)
     if not mime_type.startswith("image"):
-        print(f"File {svg_file_path} is not an image.")
+        logger.error(f"💣 File {svg_file_path} is not an image.")
         sys.exit(1)
 
     # prepare the image for openai
@@ -134,10 +140,11 @@ def process(svg_file_path):
 if __name__ == "__main__":
     svg_file_path = Path(sys.argv[1]).resolve()
     if not svg_file_path.exists():
-        print(f"File {svg_file_path} does not exist.")
+        logger.error(f"💣 File {svg_file_path} does not exist.")
         sys.exit(1)
 
     # copy the source svg to the OUTPUT_DIR and process it
     shutil.copyfile(svg_file_path, OUTPUT_DIR / svg_file_path.name)
     svg_file_path = OUTPUT_DIR / svg_file_path.name
     process(svg_file_path)
+    logger.info(f"🪴 Processed {svg_file_path}")
