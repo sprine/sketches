@@ -1,0 +1,32 @@
+{
+    "stylistic_words": [
+        "conceptual",
+        "schematic",
+        "outline",
+        "minimalist",
+        "structural"
+    ],
+    "title": "Conceptual Workflow Representation",
+    "file_name": "sketch_workflow.png",
+    "description": "A schematic representation outlining a conceptual flowchart involving coffee machines, work components, advanced features, and analysis summaries. The visual representation captures the interconnectivity and hierarchical structure of processes, job systems, and functional outputs.",
+    "differences": "The sketch portrays a simplified and linear flow of processes and responsibilities, contrasting with the complex, dynamic, and often non-linear nature of modern workflows in today's reality.",
+    "insights": [
+        "Streamlined process flow",
+        "Emphasis on modularity and component separation",
+        "Focus on daily procedural significance",
+        "Contextual importance of individual contributions",
+        "Cost and value association to features and resources"
+    ],
+    "keywords": [
+        "conceptual model",
+        "workflow diagram",
+        "process visualization",
+        "schematic representation",
+        "system architecture"
+    ],
+    "files": {
+        "svg": "taskmaster_full.svg",
+        "png": "taskmaster_full.png",
+        "source_mime_type": "image/svg+xml"
+    }
+}

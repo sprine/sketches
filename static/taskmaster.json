@@ -1,0 +1,32 @@
+{
+    "stylistic_words": [
+        "minimalistic",
+        "organized",
+        "clean",
+        "systematic",
+        "functional"
+    ],
+    "title": "Habit Tracker Visualization",
+    "file_name": "habit_tracker.png",
+    "description": "A minimalistic habit tracker facilitating daily habit monitoring. The grid layout contains rows representing various habits to be tracked (e.g., Coffee, Learn, Build, etc.) and columns representing days of the year. Habit completions are marked with filled squares (orange for complete, gray perhaps for partial).",
+    "differences": "Traditional habit-tracking methods typically rely on physical journals or sporadic digital notes, often lacking real-time visualization and ease of access. This sketch modernizes habit tracking through a visually compelling digital tool, emphasizing daily engagement and structured progress tracking.",
+    "insights": [
+        "Emphasizes visual feedback for habit completion.",
+        "Reflects a shift towards digital self-management techniques.",
+        "Supports multi-habit tracking within a single interface.",
+        "Facilitates quick identification of habit consistency over time.",
+        "Potential integration with other digital productivity tools."
+    ],
+    "keywords": [
+        "habit tracker",
+        "visualization",
+        "daily monitoring",
+        "self-management",
+        "digital tools"
+    ],
+    "files": {
+        "svg": "taskmaster.svg",
+        "png": "taskmaster.png",
+        "source_mime_type": "image/svg+xml"
+    }
+}
