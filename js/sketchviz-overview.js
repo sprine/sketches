@@ -1,6 +1,5 @@
 var svgs = [];
 
-
 const renderTitle = (titleBlock) => {
   const header = titleBlock
     .append("div")
@@ -44,20 +43,18 @@ const toggleSection = (el, target_selector) => {
   const ref_keywords = ref_title_block.querySelector(target_selector);
   ref_keywords.classList.toggle("hidden");
   el.classList.toggle("visible");
-}
+};
 
 const renderDetails = (titleBlock) => {
-  const details = titleBlock
-    .append("div")
-    .classed("details bg-slate-50", true);
-  
+  const details = titleBlock.append("div").classed("details bg-slate-50", true);
+
   // Description
   details
     .append("h3")
     .attr("class", "visible text-xxs uppercase p-0.5 pt-1 border-t")
     .html("Description")
     .on("click", (e, d) => {
-      toggleSection(e.target, ".description")
+      toggleSection(e.target, ".description");
     });
 
   details
@@ -71,7 +68,7 @@ const renderDetails = (titleBlock) => {
     .attr("class", "visible text-xxs uppercase p-0.5 pt-1 border-t")
     .html("Keywords")
     .on("click", (e, d) => {
-      toggleSection(e.target, ".keywords")
+      toggleSection(e.target, ".keywords");
     });
 
   details
@@ -85,7 +82,7 @@ const renderDetails = (titleBlock) => {
     .attr("class", "text-xxs uppercase p-0.5 pt-1 border-t")
     .html("Insights")
     .on("click", (e, d) => {
-      toggleSection(e.target, ".insights")
+      toggleSection(e.target, ".insights");
     });
 
   const insights = details.append("ul").classed("insights", true);
@@ -103,7 +100,7 @@ const renderDetails = (titleBlock) => {
     .attr("class", "text-xxs uppercase p-0.5 pt-1 border-t")
     .html("Reality check")
     .on("click", (e, d) => {
-      toggleSection(e.target, ".differences")
+      toggleSection(e.target, ".differences");
     });
   const differences = details
     .append("div")
@@ -116,28 +113,30 @@ const renderFooter = (titleBlock) => {
 };
 
 const renderPreview = (titleBlock) => {
-    // render the actual sketches
-    titleBlock
-      .append("div")
-      .classed("h-48 overflow-clip", true)
-      .html((d, i) => {
-        // if it's a svg, render object. Otherwise render as img
-        const source_mime_type = d.files.source_mime_type || "image/svg+xml";
-        if (source_mime_type === "image/svg+xml") {
-          return `<object data="static/${d.files.svg}" type="image/svg+xml" class="w-full" id="sketch_${i}"></object>`;
-        } else {
-          return `<img src="static/preview/${d.files.png}" class="w-full" id="sketch_${i}" />`;
-        }
-      });
-}
+  // render the actual sketches
+  titleBlock
+    .append("div")
+    .classed("h-48 overflow-clip", true)
+    .html((d, i) => {
+      // if it's a svg, render object. Otherwise render as img
+      const source_mime_type = d.files.source_mime_type || "image/svg+xml";
+      if (source_mime_type === "image/svg+xml") {
+        return `<object data="static/${d.files.svg}" type="image/svg+xml" class="w-full" id="sketch_${i}"></object>`;
+      } else {
+        return `<img src="static/preview/${d.files.png}" class="w-full" id="sketch_${i}" />`;
+      }
+    });
+};
 
 const renderDetailLink = (titleBlock) => {
   titleBlock
     .append("h3")
     .attr("class", "text-xxs uppercase p-0.5 pt-1 border-t")
-    .html(d => `<a href="flatlist.html?q=${d.title}" class="text-blue-600 underline underline-offset-2 text-xxs px-0.5">Detail view &rarr;</a>`);
-
-}
+    .html(
+      (d) =>
+        `<a href="flatlist.html?q=${d.title}" class="text-blue-600 underline underline-offset-2 text-xxs px-0.5">Detail view &rarr;</a>`
+    );
+};
 
 const renderTitleBlock = (sketches) => {
   const titleBlock = sketches
@@ -147,17 +146,14 @@ const renderTitleBlock = (sketches) => {
       "titleblock transition-all shadow-none duration-200 shadow-xl w-56 border font-[Roboto]"
     );
 
-  renderPreview(titleBlock)
+  renderPreview(titleBlock);
   renderTitle(titleBlock);
   renderDetails(titleBlock);
   renderDetailLink(titleBlock);
   renderFooter(titleBlock);
 };
 
-
-
 const setupOverview = (container) => {
-
   fetch("./all_sketches.json")
     .then((res) => res.json())
     .then((data) => {

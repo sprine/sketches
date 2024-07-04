@@ -1,6 +1,5 @@
 var svgs = [];
 
-
 const renderTitle = (titleBlock) => {
   const header = titleBlock
     .append("div")
@@ -44,20 +43,18 @@ const toggleSection = (el, target_selector) => {
   const ref_keywords = ref_title_block.querySelector(target_selector);
   ref_keywords.classList.toggle("hidden");
   el.classList.toggle("visible");
-}
+};
 
 const renderDetails = (titleBlock) => {
-  const details = titleBlock
-    .append("div")
-    .classed("details bg-slate-50", true);
-  
+  const details = titleBlock.append("div").classed("details bg-slate-50", true);
+
   // Description
   details
     .append("h3")
     .attr("class", "visible text-xxs uppercase p-0.5 pt-1 border-t")
     .html("Description")
     .on("click", (e, d) => {
-      toggleSection(e.target, ".description")
+      toggleSection(e.target, ".description");
     });
 
   details
@@ -71,7 +68,7 @@ const renderDetails = (titleBlock) => {
     .attr("class", "visible text-xxs uppercase p-0.5 pt-1 border-t")
     .html("Keywords")
     .on("click", (e, d) => {
-      toggleSection(e.target, ".keywords")
+      toggleSection(e.target, ".keywords");
     });
 
   details
@@ -85,7 +82,7 @@ const renderDetails = (titleBlock) => {
     .attr("class", "text-xxs uppercase p-0.5 pt-1 border-t")
     .html("Insights")
     .on("click", (e, d) => {
-      toggleSection(e.target, ".insights")
+      toggleSection(e.target, ".insights");
     });
 
   const insights = details.append("ul").classed("insights hidden", true);
@@ -103,7 +100,7 @@ const renderDetails = (titleBlock) => {
     .attr("class", "text-xxs uppercase p-0.5 pt-1 border-t")
     .html("Reality check")
     .on("click", (e, d) => {
-      toggleSection(e.target, ".differences")
+      toggleSection(e.target, ".differences");
     });
   const differences = details
     .append("div")
@@ -128,18 +125,20 @@ const renderTitleBlock = (sketches) => {
   renderFooter(titleBlock);
 };
 
-
-
 const setupSetches = (container, q) => {
-
   fetch("./all_sketches.json")
     .then((res) => res.json())
     .then((data) => {
-      const filteredData = !q ? data: data.filter((d) => {
-        const cleaned_q = q.toLowerCase().replace(/[^a-z0-9]/g, "");
-        const corpus = [d.title, d.description, d.keywords.join(" ")].join(" ").toLowerCase().replace(/[^a-z0-9]/g, "");
-        return corpus.includes(cleaned_q)
-      });
+      const filteredData = !q
+        ? data
+        : data.filter((d) => {
+            const cleaned_q = q.toLowerCase().replace(/[^a-z0-9]/g, "");
+            const corpus = [d.title, d.description, d.keywords.join(" ")]
+              .join(" ")
+              .toLowerCase()
+              .replace(/[^a-z0-9]/g, "");
+            return corpus.includes(cleaned_q);
+          });
 
       const sketches = d3
         .select(container)
