@@ -163,6 +163,14 @@ const setupSetches = (container, q) => {
           }
         });
 
+      sketches
+        .append("div")
+        .classed(
+          "absolute top-0 bg-black text-white text-xxs font-mono px-0.5",
+          true
+        )
+        .html((d, i) => `${i + 1}/${filteredData.length}`);
+
       // render the title blocks (with title, description, keywords, etc)
       renderTitleBlock(sketches);
 
