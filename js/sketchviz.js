@@ -117,7 +117,7 @@ const renderTitleBlock = (sketches) => {
     .append("div")
     .attr(
       "class",
-      "titleblock transition-all shadow-none duration-200 hover:z-50 hover:shadow-xl hover:scale-105 absolute top-4 right-8 w-56 border font-[Roboto]"
+      "titleblock transition-all shadow-none duration-200 hover:z-50 hover:shadow-xl hover:scale-105 sm:absolute sm:top-4 sm:right-8 sm:w-56 border font-[Roboto]"
     );
 
   renderTitle(titleBlock);
