@@ -117,14 +117,11 @@ const renderPreview = (titleBlock) => {
   titleBlock
     .append("div")
     .classed("h-48 overflow-clip", true)
+    .append("a")
+    .classed("block transition-all duration-200 hover:cursor-pointer hover:opacity-50 hover:scale-110", true)
+    .attr("href", d => `flatlist.html?q=${d.title}`)
     .html((d, i) => {
-      // if it's a svg, render object. Otherwise render as img
-      const source_mime_type = d.files.source_mime_type || "image/svg+xml";
-      if (source_mime_type === "image/svg+xml") {
-        return `<object data="static/${d.files.svg}" type="image/svg+xml" class="w-full" id="sketch_${i}"></object>`;
-      } else {
-        return `<img src="static/preview/${d.files.png}" class="w-full" id="sketch_${i}" />`;
-      }
+      return `<img src="static/preview/${d.files.png}" class="w-full" id="sketch_${i}" />`;
     });
 };
 
