@@ -6,8 +6,20 @@ I've been using various tools to fill that gap, but none more than [Excalidraw](
 
 Another change happened in recent years: large language models, and multi-modal models that can interpret images and sketches. This repository is a playground for me to explore how I can use these models to interpret and examine sketches.
 
-## Design decisions
+## commands
+```
+# convert.sh $*
+python cli.py $*
 
+# run.sh
+# 1. concatenate all the JSON in sketches/*.json into one file as a JSON array
+jq -s '.' static/*.json > all_sketches.json
+
+# 2. run the server
+python -m http.server 8800
+```
+
+### SVG
 Use of SVGs for sketches: I've chosen to export sketches as SVGs because:
 
 1. they are text (XML) documents that are easy to manipulate, and can be easily converted to other formats. They are supported by most modern browsers, and can be easily embedded in web pages.
