@@ -169,7 +169,7 @@ const setupSetches = (container, q) => {
           "absolute top-0 bg-black text-white text-xxs font-mono px-0.5",
           true
         )
-        .html((d, i) => `${i + 1}/${filteredData.length}`);
+        .html((d, i) => `<a href="index.html" class="underline">index</a>. ${i + 1}/${filteredData.length}`);
 
       // render the title blocks (with title, description, keywords, etc)
       renderTitleBlock(sketches);
