@@ -131,6 +131,14 @@ const renderPreview = (titleBlock) => {
       });
 }
 
+const renderDetailLink = (titleBlock) => {
+  titleBlock
+    .append("h3")
+    .attr("class", "text-xxs uppercase p-0.5 pt-1 border-t")
+    .html(d => `<a href="flatlist.html?q=${d.title}" class="text-blue-600 underline underline-offset-2 text-xxs px-0.5">Detail view &rarr;</a>`);
+
+}
+
 const renderTitleBlock = (sketches) => {
   const titleBlock = sketches
     .append("div")
@@ -142,6 +150,7 @@ const renderTitleBlock = (sketches) => {
   renderPreview(titleBlock)
   renderTitle(titleBlock);
   renderDetails(titleBlock);
+  renderDetailLink(titleBlock);
   renderFooter(titleBlock);
 };
 
