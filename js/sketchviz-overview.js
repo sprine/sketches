@@ -143,7 +143,7 @@ const renderTitleBlock = (sketches) => {
     .append("div")
     .attr(
       "class",
-      "titleblock transition-all shadow-none duration-200 shadow-xl w-56 border font-[Roboto]"
+      "titleblock transition-all shadow-none duration-200 shadow-xl w-full sm:w-56 border font-[Roboto]"
     );
 
   renderPreview(titleBlock);
@@ -161,7 +161,7 @@ const setupOverview = (container) => {
 
       const sketches = d3
         .select(container)
-        .classed("flex gap-2", true)
+        .classed("flex flex-wrap sm:flex-nowrap gap-2", true)
         .selectAll("div.sketch")
         .data(data)
         .enter()
