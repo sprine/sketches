@@ -88,7 +88,7 @@ const renderDetails = (titleBlock) => {
       toggleSection(e.target, ".insights")
     });
 
-  const insights = details.append("ul").classed("insights hidden", true);
+  const insights = details.append("ul").classed("insights", true);
   insights
     .selectAll("li")
     .data((d) => d.insights)
@@ -107,7 +107,7 @@ const renderDetails = (titleBlock) => {
     });
   const differences = details
     .append("div")
-    .classed("differences hidden p-0.5 bg-white text-xs", true)
+    .classed("differences p-0.5 bg-white text-xs", true)
     .html((d) => d.differences);
 };
 
@@ -115,14 +115,31 @@ const renderFooter = (titleBlock) => {
   titleBlock.append("div").attr("class", "bg-slate-500 py-0.5");
 };
 
+const renderPreview = (titleBlock) => {
+    // render the actual sketches
+    titleBlock
+      .append("div")
+      .classed("h-48 overflow-clip", true)
+      .html((d, i) => {
+        // if it's a svg, render object. Otherwise render as img
+        const source_mime_type = d.files.source_mime_type || "image/svg+xml";
+        if (source_mime_type === "image/svg+xml") {
+          return `<object data="static/${d.files.svg}" type="image/svg+xml" class="w-full" id="sketch_${i}"></object>`;
+        } else {
+          return `<img src="static/preview/${d.files.png}" class="w-full" id="sketch_${i}" />`;
+        }
+      });
+}
+
 const renderTitleBlock = (sketches) => {
   const titleBlock = sketches
     .append("div")
     .attr(
       "class",
-      "titleblock transition-all shadow-none duration-200 hover:z-50 hover:shadow-xl hover:scale-105 absolute top-4 right-8 w-56 border font-[Roboto]"
+      "titleblock transition-all shadow-none duration-200 shadow-xl w-56 border font-[Roboto]"
     );
 
+  renderPreview(titleBlock)
   renderTitle(titleBlock);
   renderDetails(titleBlock);
   renderFooter(titleBlock);
@@ -130,63 +147,26 @@ const renderTitleBlock = (sketches) => {
 
 
 
-const setupSetches = (container, q) => {
+const setupOverview = (container) => {
 
   fetch("./all_sketches.json")
     .then((res) => res.json())
     .then((data) => {
-      const filteredData = !q ? data: data.filter((d) => {
-        return d.title.toLowerCase().includes(q.toLowerCase());
-      });
+      d3.shuffle(data);
 
       const sketches = d3
         .select(container)
+        .classed("flex gap-2", true)
         .selectAll("div.sketch")
-        .data(filteredData)
+        .data(data)
         .enter()
         .append("div")
         .classed("sketch", true)
-        .classed("relative border-y-4 bg-gray-50", true);
-
-      // render the actual sketches
-      sketches
-        .append("div")
-        .classed("max-h-[150vh] overflow-clip", true)
-        .html((d, i) => {
-          // if it's a svg, render object. Otherwise render as img
-          const source_mime_type = d.files.source_mime_type || "image/svg+xml";
-          if (source_mime_type === "image/svg+xml") {
-            return `<object data="static/${d.files.svg}" type="image/svg+xml" class="w-screen h-screen" id="sketch_${i}"></object>`;
-          } else {
-            return `<img src="static/${d.files.png}" class="w-screen" id="sketch_${i}" />`;
-          }
-        });
+        .classed("relative", true);
 
       // render the title blocks (with title, description, keywords, etc)
       renderTitleBlock(sketches);
-
-      window.setTimeout(() => {
-        document.querySelectorAll(".sketch object").forEach((el) => {
-          const z = svgPanZoom("#" + el.id, {
-            zoomEnabled: true,
-            controlIconsEnabled: true,
-            fit: true,
-            contain: true,
-            center: true,
-            minZoom: 1,
-          });
-          svgs.push(z);
-        });
-      }, 100);
-
-      window.addEventListener("resize", function () {
-        svgs.forEach((z) => {
-          z.resize();
-          // z.fit();
-          z.center();
-        });
-      });
     });
 };
 
-export default setupSetches;
+export default setupOverview;
